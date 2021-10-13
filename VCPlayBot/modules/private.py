@@ -44,31 +44,7 @@ async def start_(client: Client, message: Message):
 ❓ **𝗙𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗮𝗯𝗼𝘂𝘁 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-                    InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
-                ],[
-                    InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse")
-                ],[
-                    InlineKeyboardButton(
-                         "📚 Commands", callback_data="cbcmds"
-                    ),
-                    InlineKeyboardButton(
-                        "💝 Donate", url=f"https://t.me/{OWNER_NAME}")
-                ],[
-                    InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{SUPPORT_GROUP}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ],[
-                    InlineKeyboardButton(
-                        "🧪 Source Code 🧪", url="https://github.com/QueenArzoo/VCPlayBot"
-                    )
-                ]
-            ]
+        
         ),
      disable_web_page_preview=True
     )
@@ -80,15 +56,15 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""✅ **bot is running**\n<b>💠 **uptime:**</b> `{uptime}`""",
+        f"""✅ **Bot is running☺️**\n<b> **uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "✨ Group", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "🚀Group", url=f"https://t.me/{SUPPORT_GROUP}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "🛠️Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
@@ -114,40 +90,40 @@ async def help(client: Client, message: Message):
         ),
     )
 
-@Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.private & ~filters.edited)
+@Client.on_message(command(["mhelp", f"mhelp@{BOT_USERNAME}"]) & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>💡 Hello {message.from_user.mention} welcome to the help menu !</b>
 
 **in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+Powered by {BOT_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
+                        "📚 Basic", callback_data="mbasic"
                     ),
                     InlineKeyboardButton(
-                        "📕 Advanced Cmd", callback_data="cbadvanced"
+                        "📕 Advanced", callback_data="madvanced"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📘 Admin Cmd", callback_data="cbadmin"
+                        "📘 Admin", callback_data="madmin"
                     ),
                     InlineKeyboardButton(
-                        "📗 Sudo Cmd", callback_data="cbsudo"
+                        "📗 Sudo", callback_data="msudo"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📙 Owner Cmd", callback_data="cbowner"
+                        "📙 Owner", callback_data="mowner"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        "📔 Fun Cmd", callback_data="mfun"
                     )
                 ]
             ]
